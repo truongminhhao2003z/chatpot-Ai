@@ -1,0 +1,4 @@
+[
+    {"input": "Xin chào!", "output": "Chào bạn! Bạn cần giúp gì?"},
+    {"input": "Mặt trời màu gì?", "output": "Mặt trời có màu vàng."},
+]
