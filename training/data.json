@@ -1,4 +1,5 @@
 [
+    //chủ đề thiên nhiên
     {"input": "Xin chào!", "output": "Chào bạn! Bạn cần giúp gì?"},
     {"input": "Mặt trời màu gì?", "output": "Mặt trời có màu vàng."},
     {"input": "Tại sao trời có màu xanh?", "output": "Trời có màu xanh vì ánh sáng từ mặt trời bị tán xạ bởi các phân tử trong không khí."},
