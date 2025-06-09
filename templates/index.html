@@ -5,21 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Học Vui</title>
     <link rel="stylesheet" href="/static/styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="chat-container">
         <h2>🤖 Chatbot Học Vui 🎉</h2>
+        <button id="theme-toggle">🌙</button>
+
         <div id="chat-box"></div>
+
+
         <div class="input-area">
-            <input type="text" id="user_input" placeholder="Nhập câu hỏi của bạn...">
+            <input type="text" id="user_input" placeholder="Nhập câu hỏi của bạn..." onkeypress="handleKeyPress(event)">
             <button onclick="sendMessage()">
-                <i class="fas fa-paper-plane">Gửi</i>
+                <i class="fas fa-paper-plane"></i> Gửi
             </button>
         </div>
     </div>
-    
-    <!-- Âm thanh -->
+    <!-- nobita -->
+    <div class="nobita">
+        <img src="/static/nobita.png" alt="Nobita vẫy tay">
+    </div>
+    <!-- // -->
+    <div id="bubbles-container"></div>
+
+    <!-- Âm thanh gửi/nhận tin nhắn -->
     <audio id="send-sound" src="/static/send.mp3"></audio>
     <audio id="receive-sound" src="/static/receive.mp3"></audio>
 
