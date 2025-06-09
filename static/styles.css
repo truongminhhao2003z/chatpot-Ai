@@ -1,63 +1,69 @@
-/* Thiết lập chung */
+/* 🎨 Thiết lập chung */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-image: url('/static/bg.jpg');  /* Hình nền */
+    background-image: url('/static/bg.jpg'); /* Hình nền */
     background-size: cover;
     background-position: center;
     text-align: center;
     margin: 0;
     padding: 0;
+    color: #333; /* Màu chữ mặc định cho chế độ sáng */
 }
 
-/* Hộp chat */
+/* 🏠 Hộp chat */
 .chat-container {
-    width: 60%;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.9);
+    width: 90%;
+    max-width: 500px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.95);
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    border: 5px solid #ff9800;
-    position: relative;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    border: 4px solid #ff9800;
     animation: bounceIn 0.6s ease;
 }
 
-/* Hộp tin nhắn */
+/* 📩 Hộp tin nhắn */
 #chat-box {
-    height: 300px;
+    height: 350px;
     overflow-y: auto;
-    border: 2px solid #ff9800;
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 10px;
-    background: #fffaf0;
+    background: #fffbe6;
     text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Tin nhắn */
+/* 🗨️ Tin nhắn */
 .message {
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 12px;
     max-width: 75%;
-    display: inline-block;
+    word-wrap: break-word;
+    font-size: 16px;
+    animation: fadeIn 0.3s ease;
 }
 
+/* 🌟 Tin nhắn người dùng */
 .user-message {
     background: #ff9800;
     color: white;
+    align-self: flex-end;
     text-align: right;
-    float: right;
 }
 
+/* 🤖 Tin nhắn chatbot */
 .bot-message {
     background: #4caf50;
     color: white;
+    align-self: flex-start;
     text-align: left;
-    float: left;
 }
 
-/* Ô nhập và nút gửi */
+/* 📥 Ô nhập và nút gửi */
 .input-area {
     display: flex;
     justify-content: center;
@@ -65,26 +71,33 @@ body {
 }
 
 input {
-    width: 75%;
-    padding: 10px;
-    border-radius: 20px;
+    flex: 1;
+    padding: 12px;
+    border-radius: 25px;
     border: 2px solid #ff9800;
     outline: none;
     font-size: 16px;
+    transition: all 0.3s ease;
 }
 
+input:focus {
+    border-color: #f57c00;
+    box-shadow: 0px 0px 5px rgba(255, 152, 0, 0.6);
+}
+
+/* 🚀 Nút gửi tin nhắn */
 button {
     background: #ff9800;
     color: white;
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
     margin-left: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 button:hover {
@@ -92,9 +105,173 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Hiệu ứng xuất hiện hộp chat */
+/* 📱 Responsive cho điện thoại */
+@media (max-width: 600px) {
+    .chat-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    #chat-box {
+        height: 300px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+}
+
+/* ✨ Hiệu ứng tin nhắn */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🏆 Hiệu ứng xuất hiện hộp chat */
 @keyframes bounceIn {
     0% { transform: scale(0.5); opacity: 0; }
     50% { transform: scale(1.1); opacity: 0.7; }
     100% { transform: scale(1); opacity: 1; }
+}
+
+/* Chế độ sáng */
+body.light-mode {
+    background-image: url('/static/bg.jpg'); /* Hình nền cho chế độ sáng */
+    color: #333;
+}
+
+.chat-container.light-mode {
+    background: rgba(255, 255, 255, 0.95);
+    border: 4px solid #ff9800;
+}
+
+input.light-mode, button.light-mode {
+    border-color: #ff9800;
+    background: white;
+}
+
+button.light-mode:hover {
+    background: #f57c00;
+}
+
+/* Chế độ tối */
+body.dark-mode {
+    background-color: #121212; /* Màu nền tối */
+    color: white;
+}
+
+.chat-container.dark-mode {
+    background: rgba(40, 40, 40, 0.95);
+    border: 4px solid #f57c00;
+}
+
+input.dark-mode, button.dark-mode {
+    border-color: #f57c00;
+    background: #333;
+    color: white;
+}
+
+button.dark-mode:hover {
+    background: #ff9800;
+}
+/* nobita */
+.nobita {
+    position: fixed;
+    bottom: 100px;
+    right: 400px; /* Đưa Nobita sang bên phải */
+    width: 100px;
+    height: auto;
+    animation: waveHand 1.5s infinite ease-in-out;
+}
+
+.nobita img {
+    width: 300%;
+    height: auto;
+}
+
+/* Hiệu ứng vẫy tay */
+@keyframes waveHand {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+/* // */
+#bubbles-container {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 223, 186, 0.7);
+    border-radius: 50%;
+    animation: floatUp 3s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-150px); opacity: 0; }
+}
+/* Feedback Controls */
+.feedback-controls {
+    margin-top: 10px;
+    text-align: right; /* Căn phải trong tin nhắn bot */
+}
+
+.bot-message .feedback-controls { /* Đảm bảo chỉ áp dụng cho tin nhắn bot */
+    text-align: left;
+}
+
+.feedback-btn {
+    background: none; /* Bỏ nền mặc định của button */
+    border: 1px solid #ccc;
+    color: #666;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 5px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    width: 40px; /* Đảm bảo kích thước cố định */
+    height: 35px; /* Đảm bảo kích thước cố định */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-btn:hover {
+    background-color: #eee;
+    border-color: #999;
+}
+
+.feedback-btn.like-btn:hover {
+    background-color: #e6ffe6; /* Xanh nhẹ */
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+.feedback-btn.dislike-btn:hover {
+    background-color: #ffe6e6; /* Đỏ nhẹ */
+    border-color: #f44336;
+    color: #f44336;
+}
+
+/* Ẩn các nút sau khi feedback được gửi */
+.feedback-controls.submitted button {
+    display: none;
 }
