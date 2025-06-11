@@ -1,0 +1,8 @@
+pip
+fastapi 
+uvicorn 
+fastapi-limiter 
+torch 
+numpy 
+transformers 
+motor
